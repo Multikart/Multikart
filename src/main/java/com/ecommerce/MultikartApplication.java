@@ -36,7 +36,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 //        DataSourceAutoConfiguration.class, //
 //        DataSourceTransactionManagerAutoConfiguration.class, //
 //        HibernateJpaAutoConfiguration.class })
-@ComponentScan (basePackages = {"com.ecommerce.admin", "com.ecommerce.security"})
+@ComponentScan (basePackages = {"com.ecommerce"})
 public class MultikartApplication {
 
 //    @Autowired

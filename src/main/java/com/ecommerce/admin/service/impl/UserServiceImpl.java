@@ -107,6 +107,7 @@ public class UserServiceImpl implements UserService{
 		user.setPhone(dto.getPhone());
 		user.setUseradd(dto.getUseradd());
 		user.setValidflag(dto.getValidflag());
+		user.setRoleId(dto.getRoleId());
 		return user;
 	}
 
@@ -115,9 +116,5 @@ public class UserServiceImpl implements UserService{
 		return UserDao.findAll(pageable);
 	}
 
-	@Override
-	public List<User> custom() {
-		return UserDao.custom();
-	}
 
 }

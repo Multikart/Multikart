@@ -17,21 +17,30 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ecommerce.admin.dto.RoleDto;
 import com.ecommerce.admin.dto.UserDto;
 import com.ecommerce.admin.entity.User;
+import com.ecommerce.admin.service.RoleService;
 import com.ecommerce.admin.service.UserService;
 
 @Controller
-@RequestMapping("user")
+@RequestMapping("admin/user")
 public class UserController {
 
 	@Autowired
 	UserService userService;
 	
+	@Autowired
+	RoleService roleService;
+	
 	@GetMapping("/add-user")
 	public String user(Model model) {
 		UserDto userDto = new UserDto();
 		model.addAttribute("user", userDto);
+		List<RoleDto> listRoleDto = roleService.getListRole();
+		if(!listRoleDto.isEmpty()) {
+			model.addAttribute("listRoleDto", listRoleDto);
+		}
 		return "user/add-user";
 	}
 	
@@ -52,7 +61,6 @@ public class UserController {
 //			System.out.print(user.getEmail());
 //		}
 //		model.addAttribute("users", page);
-		List<User> users = userService.custom();
 		return "user/index";
 	}
 }

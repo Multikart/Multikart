@@ -16,5 +16,4 @@ public interface UserService {
 	void update(UserDto dto);
 	void delete(int id);
 	public Page<User> findAllPaging(Pageable pageAble);
-	public List<User> custom();
 }

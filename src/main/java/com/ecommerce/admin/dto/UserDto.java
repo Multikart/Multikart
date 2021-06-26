@@ -17,6 +17,7 @@ public class UserDto {
 	private Date datime;
 	private String useradd;
 	private  int joindate;
+	private int roleId;
 	public int getId() {
 		return id;
 	}
@@ -101,6 +102,12 @@ public class UserDto {
 	}
 	public void setJoindate(int joindate) {
 		this.joindate = joindate;
+	}
+	public int getRoleId() {
+		return roleId;
+	}
+	public void setRoleId(int roleId) {
+		this.roleId = roleId;
 	}
 	
 	

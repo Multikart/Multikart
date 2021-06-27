@@ -47,7 +47,7 @@ public class UserController {
 	@PostMapping("/add-user")
 	public String user(@ModelAttribute("user") UserDto userdto) {
 		userService.save(userdto);
-		return "user/add-user";
+		return "redirect:/admin";
 	}
 	
 	@RequestMapping("/list-user")

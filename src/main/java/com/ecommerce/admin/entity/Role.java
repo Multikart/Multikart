@@ -24,7 +24,6 @@ public class Role {
 	private String validflag;
 	private String generate;
 	private String useradd;
-	private Date datime;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "role")
 	private List<User> users;
@@ -48,15 +47,6 @@ public class Role {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-	
-
-	public Date getDatime() {
-		return datime;
-	}
-
-	public void setDatime(Date datime) {
-		this.datime = datime;
 	}
 
 	public String getDescription() {

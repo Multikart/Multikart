@@ -26,9 +26,8 @@ public class User {
 	private String phone;
 	private String address;
 	private Character validflag;
-	private Date datime;
 	private String useradd;
-	private  int joindate;
+	private int joindate;
 	
 	@Column(name = "role_id")
 	private int roleId;
@@ -41,12 +40,6 @@ public class User {
 		
 	}
 
-	public Date getDatime() {
-		return datime;
-	}
-	public void setDatime(Date datime) {
-		this.datime = datime;
-	}
 	public int getId() {
 		return id;
 	}

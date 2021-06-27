@@ -3,18 +3,31 @@ package com.ecommerce.admin.dto;
 import java.sql.Date;
 import java.sql.Timestamp;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 public class UserDto {
 	private int id;
+	
+	@NotBlank(message = "Email not be blank")
 	private String email;
+	
+	@NotBlank(message = "First Name not be blank")
 	private String firstname;
+
+	@NotBlank(message = "Last Name not be blank")
 	private String lastname;
+	
+	@NotBlank(message = "Password not be blank")
 	private String password;
+	
+	@NotBlank(message = "Confirm Password not be blank")
 	private String confirmpassword;
 	private String avatar;
 	private String phone;
 	private String address;
-	private Character validflag;
-	private Date datime;
+	private String validflag;
+
 	private String useradd;
 	private  int joindate;
 	private int roleId;
@@ -49,12 +62,6 @@ public class UserDto {
 		this.password = password;
 	}
 	
-	public Date getDatime() {
-		return datime;
-	}
-	public void setDatime(Date datime) {
-		this.datime = datime;
-	}
 	public String getConfirmpassword() {
 		return confirmpassword;
 	}
@@ -79,10 +86,10 @@ public class UserDto {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public Character getValidflag() {
+	public String getValidflag() {
 		return validflag;
 	}
-	public void setValidflag(Character validflag) {
+	public void setValidflag(String validflag) {
 		this.validflag = validflag;
 	}
 //	public Timestamp getDatime() {

@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "users")
@@ -18,6 +19,8 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	
 	private String email;
 	private String firstname;
 	private String lastname;
@@ -25,7 +28,7 @@ public class User {
 	private String avatar;
 	private String phone;
 	private String address;
-	private Character validflag;
+	private String validflag;
 	private String useradd;
 	private int joindate;
 	
@@ -88,18 +91,15 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public Character getValidflag() {
+
+	public String getValidflag() {
 		return validflag;
 	}
-	public void setValidflag(Character validflag) {
+
+	public void setValidflag(String validflag) {
 		this.validflag = validflag;
 	}
-//	public Timestamp getDatime() {
-//		return datime;
-//	}
-//	public void setDatime(Timestamp datime) {
-//		this.datime = datime;
-//	}
+
 	public String getUseradd() {
 		return useradd;
 	}

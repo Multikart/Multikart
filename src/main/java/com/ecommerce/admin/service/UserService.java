@@ -12,7 +12,7 @@ import com.ecommerce.admin.entity.User;
 public interface UserService {
 	List<UserDto> findAll();
 	UserDto findById(int id);
-	void save(UserDto dto);
+	User save(UserDto dto);
 	void update(UserDto dto);
 	void delete(int id);
 	public Page<User> findAllPaging(Pageable pageAble);

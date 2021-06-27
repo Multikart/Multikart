@@ -1,25 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Multikart admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-    <meta name="keywords" content="admin template, Multikart admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="pixelstrap">
-    <link rel="icon" href="../static/assets/images/dashboard/favicon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="../static/assets/images/dashboard/favicon.png" type="image/x-icon">
-    <title>Multikart - Premium Admin Template</title>
-
-    <!-- Google font-->
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <!-- Font Awesome-->
-    <link rel="stylesheet" type="text/css" href="../static/assets/css/vendors/fontawesome.css">
-
-    <!-- Flag icon-->
+	<meta name="description" content="Multikart admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+	<meta name="keywords" content="admin template, Multikart admin template, dashboard template, flat admin template, responsive admin template, web app">
+	<meta name="author" content="pixelstrap">
+	<title>Multikart - Premium Admin Template</title>
+    <th:block th:insert = "~{./layout/header::meta}"></th:block>
+	<th:block th:insert = "~{./layout/header::link}"></th:block>
+	
+	<!-- Flag icon-->
     <link rel="stylesheet" type="text/css" href="../static/assets/css/vendors/themify-icons.css">
 
     <!-- slick icon-->
@@ -28,13 +17,6 @@
 
     <!-- jsgrid css-->
     <link rel="stylesheet" type="text/css" href="../static/assets/css/vendors/jsgrid.css">
-
-    <!-- Bootstrap css-->
-    <link rel="stylesheet" type="text/css" href="../static/assets/css/vendors/bootstrap.css">
-
-    <!-- App css-->
-    <link rel="stylesheet" type="text/css" href="../static/assets/css/admin.css">
-
 </head>
 <body>
 
@@ -244,18 +226,9 @@
     </div>
 </div>
 
-<!-- latest jquery-->
-<script src="../static/assets/js/jquery-3.3.1.min.js"></script>
-
-<!-- Bootstrap js-->
-<script src="../static/assets/js/bootstrap.bundle.min.js"></script>
-
-<!-- feather icon js-->
-<script src="../static/assets/js/icons/feather-icon/feather.min.js"></script>
-<script src="../static/assets/js/icons/feather-icon/feather-icon.js"></script>
+<th:block th:insert = "~{./layout/script::script}"></th:block>
 
 <!-- Sidebar jquery-->
-<script src="../static/assets/js/sidebar-menu.js"></script>
 <script src="../static/assets/js/slick.js"></script>
 
 <!-- Jsgrid js-->
@@ -263,14 +236,6 @@
 <script src="../static/assets/js/jsgrid/griddata-invoice.js"></script>
 <script src="../static/assets/js/jsgrid/jsgrid-invoice.js"></script>
 
-<!-- lazyload js-->
-<script src="../static/assets/js/lazysizes.min.js"></script>
-
-<!--right sidebar js-->
-<script src="../static/assets/js/chat-menu.js"></script>
-
-<!--script admin-->
-<script src="../static/assets/js/admin-script.js"></script>
 <script>
     $('.single-item').slick({
             arrows: false,

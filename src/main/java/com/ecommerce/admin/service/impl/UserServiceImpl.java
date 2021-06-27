@@ -1,10 +1,15 @@
 package com.ecommerce.admin.service.impl;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManagerFactory;
+import javax.transaction.Transactional;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +24,7 @@ import com.ecommerce.admin.entity.User;
 import com.ecommerce.admin.service.UserService;
 
 @Service
+@Transactional(rollbackOn = Exception.class)
 public class UserServiceImpl implements UserService{
 
 	@Autowired
@@ -46,11 +52,11 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public void save(UserDto dto) {
+	public User save(UserDto dto) {
 		// Mã hóa mật khẩu
 		String hashed = BCrypt.hashpw(dto.getPassword(), BCrypt.gensalt());
 		dto.setPassword(hashed);
-		UserDao.save(convertDtoToEntity(dto));
+		return UserDao.save(convertDtoToEntity(dto));
 		
 	}
 
@@ -76,6 +82,21 @@ public class UserServiceImpl implements UserService{
 		return dtos;
 	}
 	
+	private int convertDateTime() {
+		
+		//get Date + Hourse (27062021_113300)
+		LocalDateTime myDateFormat = LocalDateTime.now();
+		
+		//Format DDMMYYY
+		DateTimeFormatter dateTimeFormat =  DateTimeFormatter.ofPattern("ddMMYYYY");
+		String formatDate = myDateFormat.format(dateTimeFormat);
+		
+		//Parse to String to Int
+		int joinDatetime = Integer.parseInt(formatDate);
+		
+		return joinDatetime;
+	}
+	
 	public UserDto convertEntityToDto(User user) {
 		userdto = new UserDto();
 		userdto.setId(user.getId());
@@ -83,7 +104,7 @@ public class UserServiceImpl implements UserService{
 		userdto.setLastname(user.getLastname());
 		userdto.setAddress(user.getAddress());
 		userdto.setAvatar(user.getAvatar());
-//		userdto.setDatime(new Timestamp(System.currentTimeMillis()) );
+		userdto.setJoindate(user.getJoindate());
 		userdto.setEmail(user.getEmail());
 		userdto.setJoindate(user.getJoindate());
 		userdto.setPassword(user.getPassword());
@@ -100,13 +121,12 @@ public class UserServiceImpl implements UserService{
 		user.setLastname(dto.getLastname());
 		user.setAddress(dto.getAddress());
 		user.setAvatar(dto.getAvatar());
-//		user.setDatime(dto.getDatime());
+		user.setValidflag("1");
+		user.setJoindate(convertDateTime());
 		user.setEmail(dto.getEmail());
-		user.setJoindate(dto.getJoindate());
 		user.setPassword(dto.getPassword());
 		user.setPhone(dto.getPhone());
 		user.setUseradd(dto.getUseradd());
-		user.setValidflag(dto.getValidflag());
 		user.setRoleId(dto.getRoleId());
 		return user;
 	}

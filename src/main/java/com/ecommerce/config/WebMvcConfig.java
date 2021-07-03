@@ -27,6 +27,10 @@ public class WebMvcConfig implements WebMvcConfigurer {
 		registry
 		.addResourceHandler("/**") // Tên thay thế khi sử dụng trên trang web
 		.addResourceLocations("classpath:static"); // Tên thư mục chứa file css|js|image
+		
+		registry
+		.addResourceHandler("/admin/user/**") // Tên thay thế khi sử dụng trên trang web
+		.addResourceLocations("classpath:static"); // Tên thư mục chứa file css|js|image
 	}
 	
 

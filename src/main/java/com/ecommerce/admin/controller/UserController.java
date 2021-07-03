@@ -20,6 +20,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -84,11 +85,11 @@ public class UserController {
 			FileUploadUtil.saveFile(uploadDir, fileName, muiMultipartFile);
 		}
 
-		return "redirect:/admin";
+		return "redirect:/admin/user/list-user/1";
 	}
 	
-	@RequestMapping("/list-user")
-	public String index(Model model) {
+	@RequestMapping("/list-user/{pageIndex}")
+	public String index(@PathVariable("pageIndex") int pageIndex ,Model model) {
 //		int pageSize = 1;
 //		Pageable pageable = PageRequest.of(index, pageSize);
 //		Page page = userService.findAllPaging(pageable);
@@ -98,6 +99,13 @@ public class UserController {
 //			System.out.print(user.getEmail());
 //		}
 //		model.addAttribute("users", page);
-		return "user/index";
+		int pageSize = 2;
+		Page<User> userPage = userService.pagingUserDto(pageIndex, pageSize);
+		List<User> listUser = userPage.getContent();
+		model.addAttribute("listUser", listUser);
+		model.addAttribute("currentPage", pageIndex);
+		model.addAttribute("totalPages", userPage.getTotalPages());
+		model.addAttribute("totalElement", userPage.getTotalElements());
+		return "user/list-user";
 	}
 }

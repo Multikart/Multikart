@@ -7,13 +7,16 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.function.Function;
 
 import javax.persistence.EntityManagerFactory;
 import javax.transaction.Transactional;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -134,6 +137,15 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public Page<User> findAllPaging(Pageable pageable) {
 		return UserDao.findAll(pageable);
+	}
+
+	@Override
+	public Page<User> pagingUserDto(int pageIndex, int pageSize) {
+		//PageAble container vi tri trang duoc lay, va so phan tu duoc lay
+		Pageable pageAble = PageRequest.of(pageIndex - 1, pageSize);
+		
+		return UserDao.findAll(pageAble);
+		
 	}
 
 

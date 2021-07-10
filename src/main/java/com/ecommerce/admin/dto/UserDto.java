@@ -117,5 +117,11 @@ public class UserDto {
 		this.roleId = roleId;
 	}
 	
+	public String getImagePathDto() {
+		if(avatar.equals("")) {
+			return "";
+		}
+		return "/admin/static/user-photos/" + Integer.toString(joindate) + "/" + avatar ;
+	}
 	
 }

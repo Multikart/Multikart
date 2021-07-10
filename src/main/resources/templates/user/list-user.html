@@ -58,7 +58,7 @@
                     </div>
                     <div class="card-body">
                         <div class="btn-popup pull-right">
-                            <a href="create-user.html" class="btn btn-secondary">Create User</a>
+                            <a th:href="@{/admin/user/add-user}" class="btn btn-secondary">Create User</a>
                         </div>
                         <div id="batchDelete" class="category-table user-list order-table jsgrid" style="position: relative; height: auto; width: 100%;">
 							<div class="jsgrid-grid-header jsgrid-header-scrollbar">
@@ -67,7 +67,7 @@
 										<tr class="jsgrid-header-row">
 											<th class="jsgrid-header-cell jsgrid-align-center"
 												style="width: 60px;"><button type="button"
-													class="btn btn-danger btn-sm btn-delete mb-0 b-r-4">Delete</button></th>
+													class="btn btn-primary btn-sm btn-delete mb-0 b-r-4">Delete</button></th>
 											<th class="jsgrid-header-cell jsgrid-align-center"
 												style="width: 50px;">Avatar</th>
 											<th class="jsgrid-header-cell" style="width: 100px;">First
@@ -89,38 +89,40 @@
 										<tr class="jsgrid-row" th:each = "user : ${listUser}">
 											<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"><input
 												type="checkbox"></td>
-											<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><img
-												src="../assets/images/dashboard/user5.jpg"
-												style="height: 50px; width: 50px;"></td>
+											<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;" >
+												<img th:if ="${user.getImagePath != null}" th:src="@{${user.getImagePath}}" style="height: 50px; width: 50px;">
+												<img th:if ="${user.getImagePath == null}" src="../static/assets/images/dashboard/user5.jpg" style="height: 50px; width: 50px;">
+											</td>
 											<td class="jsgrid-cell" style="width: 100px;" th:text="${user.firstname}">Rowan</td>
 											<td class="jsgrid-cell" style="width: 100px;" th:text="${user.lastname}">Torres</td>
 											<td class="jsgrid-cell" style="width: 100px;" th:text="${user.email}">Rowan.torres@gmail.com</td>
 											<td class="jsgrid-cell" style="width: 100px;">6 Days ago</td>
-											<td class="jsgrid-cell" style="width: 100px;">Customer</td>
-											<td class="jsgrid-cell" style="width: 100px;">Edit User</td>
-											<td class="jsgrid-cell" style="width: 100px;">Delete User</td>
+											<td class="jsgrid-cell" style="width: 100px;" th:text =${user.getRoleName}>Customer</td>
+											<td class="jsgrid-cell" style="width: 100px;"><a th:href="@{/admin/user/edit-user(id=${user.id}, page=${currentPage})}"><button type="button" class="btn btn-warning btn-sm  mb-0 b-r-4">Edit</button></a></td>
+											<td class="jsgrid-cell" style="width: 100px;"><a th:href="@{/admin/user/delete-user(id=${user.id})}"><button type="button" class="btn btn-primary btn-delete btn-sm  mb-0 b-r-4">Delete</button></a></td>
 										</tr>
 									</tbody>
 								</table>
 							</div>
 							<div class="jsgrid-pager-container" style="display: block;">
-								<div class="jsgrid-pager" th:if="${currentPage < totalPages}">
+								<div class="jsgrid-pager" >
 									Pages: 
-									<span class="jsgrid-pager-nav-button jsgrid-pager-nav-inactive-button">
+									<span class="jsgrid-pager-nav-button"> 
 										<a th:href="'/admin/user/list-user/1'">First</a>
-									</span>
+									 </span>
 									 <span class="jsgrid-pager-nav-button jsgrid-pager-nav-inactive-button">
 										 <a href="javascript:void(0);">Prev</a>
 									 </span> 
-									 <span class="jsgrid-pager-page jsgrid-pager-current-page">1</span>
-									 <span class="jsgrid-pager-page">
-									 	<a href="javascript:void(0);">2</a>
+									 <!-- <span class="jsgrid-pager-page jsgrid-pager-current-page">1</span> -->
+									 <span class="jsgrid-pager-page" th:each="i: ${#numbers.sequence(1, totalPages)}">
+									 	<a th:if="${currentPage != i}" th:href="'/admin/user/list-user/' + ${i}">[[${i}]]</a>
+									 	<a th:if="${currentPage == i}">[[${i}]]</a> 
 									 </span>
 									<span class="jsgrid-pager-nav-button">
 									 	<a href="javascript:void(0);">Next</a>
 									 </span> 
 									 <span class="jsgrid-pager-nav-button">
-									 	<a th:href="'/admin/user/list-user/'">Last</a>
+									 	<a th:href="'/admin/user/list-user/' + ${totalPages}">Last</a>
 									 </span> &nbsp;&nbsp; 1 of 2
 								</div>
 							</div>

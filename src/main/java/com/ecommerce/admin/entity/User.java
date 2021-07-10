@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -125,7 +126,17 @@ public class User {
 		this.role = role;
 	}
 	
+	//get role Name
+	public String getRoleName() {
+		return role.getName();
+	}
 	
-	
+	//get Image Path
+	public String getImagePath() {
+		if(avatar.equals("")) {
+			return null;
+		}
+		return "/admin/static/user-photos/" + Integer.toString(joindate) + "/" + avatar ;
+	}
 	
 }

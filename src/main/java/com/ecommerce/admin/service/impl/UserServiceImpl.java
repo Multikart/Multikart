@@ -50,8 +50,30 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public UserDto findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return convertEntityToDto(id);
+	}
+	
+	private UserDto convertEntityToDto(int id) {
+		User user = UserDao.findById(id);
+		UserDto userDto = null;
+		if(user != null) {
+			userDto = new UserDto();
+			userDto.setId(user.getId());
+			userDto.setFirstname(user.getFirstname());
+			userDto.setLastname(user.getLastname());
+			userDto.setAddress(user.getAddress());
+			userDto.setAvatar(user.getAvatar());
+			userDto.setJoindate(user.getJoindate());
+			userDto.setEmail(user.getEmail());
+			userDto.setJoindate(user.getJoindate());
+			userDto.setPassword(user.getPassword());
+			userDto.setPhone(user.getPhone());
+			userDto.setRoleId(user.getRoleId());
+			userDto.setUseradd(user.getUseradd());
+			userDto.setValidflag(user.getValidflag());
+		}
+		return userDto;
 	}
 
 	@Override
@@ -71,7 +93,9 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public void delete(int id) {
-		UserDao.deleteById(id);
+		User user = UserDao.findById(id);
+		user.setValidflag("2");
+		UserDao.save(user);
 		
 	}
 	
@@ -144,7 +168,7 @@ public class UserServiceImpl implements UserService{
 		//PageAble container vi tri trang duoc lay, va so phan tu duoc lay
 		Pageable pageAble = PageRequest.of(pageIndex - 1, pageSize);
 		
-		return UserDao.findAll(pageAble);
+		return UserDao.findByValidflagContaining("1", pageAble);
 		
 	}
 

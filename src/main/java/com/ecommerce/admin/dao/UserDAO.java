@@ -14,10 +14,12 @@ import com.ecommerce.admin.entity.User;
 @Repository
 public interface UserDAO extends JpaRepository<User,Integer> {
 	
-	@Query("SELECT u FROM User u WHERE u.id = :id AND u.validflag = 2")
-	public User findById(@Param("id")int id);
+	/* @Query("SELECT u FROM User u WHERE u.id = :id AND u.validflag = 1") */
+//	public User findById(@Param("id")int id);
+	public User findById(int id);
 	public User findByFirstname(String firstname);
 	public User findByEmail(String email);
+	public Page<User> findByValidflagContaining(String validflag, Pageable pageAble);
 	//public Page<User> findAllPaging(Pageable pageAble);
 //	public List<User> custom();
 }

@@ -1,317 +1,347 @@
-<div id="batchDelete"
-	class="category-table user-list order-table jsgrid"
-	style="position: relative; height: auto; width: 100%;">
-	<div class="jsgrid-grid-header jsgrid-header-scrollbar">
-		<table class="jsgrid-table">
-			<tbody>
-				<tr class="jsgrid-header-row">
-					<th class="jsgrid-header-cell jsgrid-align-center"
-						style="width: 60px;"><button type="button"
-							class="btn btn-danger btn-sm btn-delete mb-0 b-r-4">Delete</button></th>
-					<th class="jsgrid-header-cell jsgrid-align-center"
-						style="width: 50px;">Avatar</th>
-					<th class="jsgrid-header-cell" style="width: 100px;">First
-						Name</th>
-					<th class="jsgrid-header-cell" style="width: 100px;">Last Name</th>
-					<th class="jsgrid-header-cell" style="width: 100px;">Email</th>
-					<th class="jsgrid-header-cell" style="width: 100px;">Last
-						Login</th>
-					<th class="jsgrid-header-cell" style="width: 100px;">Role</th>
-				</tr>
-				<tr class="jsgrid-filter-row" style="display: none;">
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"></td>
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;"><input
-						type="text"></td>
-					<td class="jsgrid-cell" style="width: 100px;"><input
-						type="text"></td>
-					<td class="jsgrid-cell" style="width: 100px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;"><input
-						type="text"></td>
-					<td class="jsgrid-cell" style="width: 100px;"><input
-						type="text"></td>
-				</tr>
-				<tr class="jsgrid-insert-row" style="display: none;">
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"></td>
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><input
-						type="file"></td>
-					<td class="jsgrid-cell" style="width: 100px;"><input
-						type="text"></td>
-					<td class="jsgrid-cell" style="width: 100px;"><input
-						type="text"></td>
-					<td class="jsgrid-cell" style="width: 100px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;"><input
-						type="text"></td>
-					<td class="jsgrid-cell" style="width: 100px;"><input
-						type="text"></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	<div class="jsgrid-grid-body">
-		<table class="jsgrid-table">
-			<tbody>
-				<tr class="jsgrid-row">
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"><input
-						type="checkbox"></td>
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><img
-						src="../assets/images/dashboard/user5.jpg"
-						style="height: 50px; width: 50px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;">Rowan</td>
-					<td class="jsgrid-cell" style="width: 100px;">Torres</td>
-					<td class="jsgrid-cell" style="width: 100px;">Rowan.torres@gmail.com</td>
-					<td class="jsgrid-cell" style="width: 100px;">6 Days ago</td>
-					<td class="jsgrid-cell" style="width: 100px;">Customer</td>
-				</tr>
-				<tr class="jsgrid-alt-row">
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"><input
-						type="checkbox"></td>
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><img
-						src="../assets/images/dashboard/user3.jpg"
-						style="height: 50px; width: 50px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;">Alonzo</td>
-					<td class="jsgrid-cell" style="width: 100px;">Perez</td>
-					<td class="jsgrid-cell" style="width: 100px;">Perez.Alonzo@gmail.com</td>
-					<td class="jsgrid-cell" style="width: 100px;">2 Days ago</td>
-					<td class="jsgrid-cell" style="width: 100px;">Customer</td>
-				</tr>
-				<tr class="jsgrid-row">
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"><input
-						type="checkbox"></td>
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><img
-						src="../assets/images/dashboard/user1.jpg"
-						style="height: 50px; width: 50px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;">Skylar</td>
-					<td class="jsgrid-cell" style="width: 100px;">Lane</td>
-					<td class="jsgrid-cell" style="width: 100px;">Lane.Skylar@gmail.com</td>
-					<td class="jsgrid-cell" style="width: 100px;">1 Days ago</td>
-					<td class="jsgrid-cell" style="width: 100px;">Customer</td>
-				</tr>
-				<tr class="jsgrid-alt-row">
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"><input
-						type="checkbox"></td>
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><img
-						src="../assets/images/dashboard/boy-2.png"
-						style="height: 50px; width: 50px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;">Brody</td>
-					<td class="jsgrid-cell" style="width: 100px;">Gray</td>
-					<td class="jsgrid-cell" style="width: 100px;">Gray.Brody@gmail.com</td>
-					<td class="jsgrid-cell" style="width: 100px;">3 Days ago</td>
-					<td class="jsgrid-cell" style="width: 100px;">Admin</td>
-				</tr>
-				<tr class="jsgrid-row">
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"><input
-						type="checkbox"></td>
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><img
-						src="../assets/images/dashboard/designer.jpg"
-						style="height: 50px; width: 50px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;">Colton</td>
-					<td class="jsgrid-cell" style="width: 100px;">Clay</td>
-					<td class="jsgrid-cell" style="width: 100px;">Colton.Clay@gmail.com</td>
-					<td class="jsgrid-cell" style="width: 100px;">1 Days ago</td>
-					<td class="jsgrid-cell" style="width: 100px;">Customer</td>
-				</tr>
-				<tr class="jsgrid-alt-row">
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"><input
-						type="checkbox"></td>
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><img
-						src="../assets/images/dashboard/user.png"
-						style="height: 50px; width: 50px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;">Maxine</td>
-					<td class="jsgrid-cell" style="width: 100px;">Woters</td>
-					<td class="jsgrid-cell" style="width: 100px;">woters.maxine@gmail.com</td>
-					<td class="jsgrid-cell" style="width: 100px;">10 Days ago</td>
-					<td class="jsgrid-cell" style="width: 100px;">Customer</td>
-				</tr>
-				<tr class="jsgrid-row">
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"><input
-						type="checkbox"></td>
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><img
-						src="../assets/images/dashboard/user3.jpg"
-						style="height: 50px; width: 50px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;">Alonzo</td>
-					<td class="jsgrid-cell" style="width: 100px;">Perez</td>
-					<td class="jsgrid-cell" style="width: 100px;">Perez.Alonzo@gmail.com</td>
-					<td class="jsgrid-cell" style="width: 100px;">2 Days ago</td>
-					<td class="jsgrid-cell" style="width: 100px;">Customer</td>
-				</tr>
-				<tr class="jsgrid-alt-row">
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"><input
-						type="checkbox"></td>
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><img
-						src="../assets/images/dashboard/user1.jpg"
-						style="height: 50px; width: 50px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;">Skylar</td>
-					<td class="jsgrid-cell" style="width: 100px;">Lane</td>
-					<td class="jsgrid-cell" style="width: 100px;">Lane.Skylar@gmail.com</td>
-					<td class="jsgrid-cell" style="width: 100px;">1 Days ago</td>
-					<td class="jsgrid-cell" style="width: 100px;">Customer</td>
-				</tr>
-				<tr class="jsgrid-row">
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"><input
-						type="checkbox"></td>
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><img
-						src="../assets/images/dashboard/boy-2.png"
-						style="height: 50px; width: 50px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;">Brody</td>
-					<td class="jsgrid-cell" style="width: 100px;">Gray</td>
-					<td class="jsgrid-cell" style="width: 100px;">Gray.Brody@gmail.com</td>
-					<td class="jsgrid-cell" style="width: 100px;">3 Days ago</td>
-					<td class="jsgrid-cell" style="width: 100px;">Customer</td>
-				</tr>
-				<tr class="jsgrid-alt-row">
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"><input
-						type="checkbox"></td>
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><img
-						src="../assets/images/dashboard/designer.jpg"
-						style="height: 50px; width: 50px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;">Colton</td>
-					<td class="jsgrid-cell" style="width: 100px;">Clay</td>
-					<td class="jsgrid-cell" style="width: 100px;">Colton.Clay@gmail.com</td>
-					<td class="jsgrid-cell" style="width: 100px;">1 Days ago</td>
-					<td class="jsgrid-cell" style="width: 100px;">Admin</td>
-				</tr>
-				<tr class="jsgrid-row">
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"><input
-						type="checkbox"></td>
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><img
-						src="../assets/images/dashboard/user.png"
-						style="height: 50px; width: 50px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;">Maxine</td>
-					<td class="jsgrid-cell" style="width: 100px;">Woters</td>
-					<td class="jsgrid-cell" style="width: 100px;">woters.maxine@gmail.com</td>
-					<td class="jsgrid-cell" style="width: 100px;">10 Days ago</td>
-					<td class="jsgrid-cell" style="width: 100px;">Customer</td>
-				</tr>
-				<tr class="jsgrid-alt-row">
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"><input
-						type="checkbox"></td>
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><img
-						src="../assets/images/dashboard/user3.jpg"
-						style="height: 50px; width: 50px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;">Alonzo</td>
-					<td class="jsgrid-cell" style="width: 100px;">Perez</td>
-					<td class="jsgrid-cell" style="width: 100px;">Perez.Alonzo@gmail.com</td>
-					<td class="jsgrid-cell" style="width: 100px;">2 Days ago</td>
-					<td class="jsgrid-cell" style="width: 100px;">Customer</td>
-				</tr>
-				<tr class="jsgrid-row">
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"><input
-						type="checkbox"></td>
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><img
-						src="../assets/images/dashboard/user1.jpg"
-						style="height: 50px; width: 50px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;">Skylar</td>
-					<td class="jsgrid-cell" style="width: 100px;">Lane</td>
-					<td class="jsgrid-cell" style="width: 100px;">Lane.Skylar@gmail.com</td>
-					<td class="jsgrid-cell" style="width: 100px;">1 Days ago</td>
-					<td class="jsgrid-cell" style="width: 100px;">Customer</td>
-				</tr>
-				<tr class="jsgrid-alt-row">
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"><input
-						type="checkbox"></td>
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><img
-						src="../assets/images/dashboard/boy-2.png"
-						style="height: 50px; width: 50px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;">Brody</td>
-					<td class="jsgrid-cell" style="width: 100px;">Gray</td>
-					<td class="jsgrid-cell" style="width: 100px;">Gray.Brody@gmail.com</td>
-					<td class="jsgrid-cell" style="width: 100px;">3 Days ago</td>
-					<td class="jsgrid-cell" style="width: 100px;">Customer</td>
-				</tr>
-				<tr class="jsgrid-row">
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"><input
-						type="checkbox"></td>
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><img
-						src="../assets/images/dashboard/designer.jpg"
-						style="height: 50px; width: 50px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;">Colton</td>
-					<td class="jsgrid-cell" style="width: 100px;">Clay</td>
-					<td class="jsgrid-cell" style="width: 100px;">Colton.Clay@gmail.com</td>
-					<td class="jsgrid-cell" style="width: 100px;">1 Days ago</td>
-					<td class="jsgrid-cell" style="width: 100px;">Customer</td>
-				</tr>
-				<tr class="jsgrid-alt-row">
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"><input
-						type="checkbox"></td>
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><img
-						src="../assets/images/dashboard/user5.jpg"
-						style="height: 50px; width: 50px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;">Rowan</td>
-					<td class="jsgrid-cell" style="width: 100px;">Torres</td>
-					<td class="jsgrid-cell" style="width: 100px;">Rowan.torres@gmail.com</td>
-					<td class="jsgrid-cell" style="width: 100px;">6 Days ago</td>
-					<td class="jsgrid-cell" style="width: 100px;">Customer</td>
-				</tr>
-				<tr class="jsgrid-row">
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"><input
-						type="checkbox"></td>
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><img
-						src="../assets/images/dashboard/user3.jpg"
-						style="height: 50px; width: 50px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;">Alonzo</td>
-					<td class="jsgrid-cell" style="width: 100px;">Perez</td>
-					<td class="jsgrid-cell" style="width: 100px;">Perez.Alonzo@gmail.com</td>
-					<td class="jsgrid-cell" style="width: 100px;">2 Days ago</td>
-					<td class="jsgrid-cell" style="width: 100px;">Admin</td>
-				</tr>
-				<tr class="jsgrid-alt-row">
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"><input
-						type="checkbox"></td>
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><img
-						src="../assets/images/dashboard/user1.jpg"
-						style="height: 50px; width: 50px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;">Skylar</td>
-					<td class="jsgrid-cell" style="width: 100px;">Lane</td>
-					<td class="jsgrid-cell" style="width: 100px;">Lane.Skylar@gmail.com</td>
-					<td class="jsgrid-cell" style="width: 100px;">1 Days ago</td>
-					<td class="jsgrid-cell" style="width: 100px;">Customer</td>
-				</tr>
-				<tr class="jsgrid-row">
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"><input
-						type="checkbox"></td>
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><img
-						src="../assets/images/dashboard/boy-2.png"
-						style="height: 50px; width: 50px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;">Brody</td>
-					<td class="jsgrid-cell" style="width: 100px;">Gray</td>
-					<td class="jsgrid-cell" style="width: 100px;">Gray.Brody@gmail.com</td>
-					<td class="jsgrid-cell" style="width: 100px;">3 Days ago</td>
-					<td class="jsgrid-cell" style="width: 100px;">Admin</td>
-				</tr>
-				<tr class="jsgrid-alt-row">
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 60px;"><input
-						type="checkbox"></td>
-					<td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><img
-						src="../assets/images/dashboard/designer.jpg"
-						style="height: 50px; width: 50px;"></td>
-					<td class="jsgrid-cell" style="width: 100px;">Colton</td>
-					<td class="jsgrid-cell" style="width: 100px;">Clay</td>
-					<td class="jsgrid-cell" style="width: 100px;">Colton.Clay@gmail.com</td>
-					<td class="jsgrid-cell" style="width: 100px;">1 Days ago</td>
-					<td class="jsgrid-cell" style="width: 100px;">Customer</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	<div class="jsgrid-pager-container" style="display: block;">
-		<div class="jsgrid-pager">
-			Pages: <span
-				class="jsgrid-pager-nav-button jsgrid-pager-nav-inactive-button"><a
-				href="javascript:void(0);">First</a></span> <span
-				class="jsgrid-pager-nav-button jsgrid-pager-nav-inactive-button"><a
-				href="javascript:void(0);">Prev</a></span> <span
-				class="jsgrid-pager-page jsgrid-pager-current-page">1</span><span
-				class="jsgrid-pager-page"><a href="javascript:void(0);">2</a></span>
-			<span class="jsgrid-pager-nav-button"><a
-				href="javascript:void(0);">Next</a></span> <span
-				class="jsgrid-pager-nav-button"><a href="javascript:void(0);">Last</a></span>
-			&nbsp;&nbsp; 1 of 2
-		</div>
-	</div>
-	<div class="jsgrid-load-shader"
-		style="display: none; position: absolute; inset: 0px; z-index: 1000;"></div>
-	<div class="jsgrid-load-panel"
-		style="display: none; position: absolute; top: 50%; left: 50%; z-index: 1000;">Please,
-		wait...</div>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta name="description" content="Multikart admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+	<meta name="keywords" content="admin template, Multikart admin template, dashboard template, flat admin template, responsive admin template, web app">
+	<meta name="author" content="pixelstrap">
+	<title>Multikart - Premium Admin Template</title>
+    <th:block th:insert = "~{./layout/header::meta}"></th:block>
+	<th:block th:insert = "~{./layout/header::link}"></th:block>
+</head>
+<body>
+
+<!-- page-wrapper Start-->
+<div class="page-wrapper">
+
+    <!-- Page Header Start-->
+		<th:block th:insert = "~{./layout/navbar::navbar}"></th:block>
+    <!-- Page Header Ends -->
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+
+        <!-- Page Sidebar Start-->
+		<th:block th:insert = "~{./layout/sidebar::sidebar}"></th:block>
+        <!-- Page Sidebar Ends-->
+
+        <div class="page-body">
+
+            <!-- Container-fluid starts-->
+            <div class="container-fluid">
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="page-header-left">
+                                <h3>Create User
+                                    <small>Multikart Admin panel</small>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <ol class="breadcrumb pull-right">
+                                <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item">Users </li>
+                                <li class="breadcrumb-item active">Create User </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid Ends-->
+
+            <!-- Container-fluid starts-->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card tab2-card">
+                            <div class="card-header">
+                                <h5> Add User</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="nav nav-tabs tab-coupon" id="myTab" role="tablist">
+                                    <li class="nav-item"><a class="nav-link active show" id="account-tab" data-bs-toggle="tab" href="#account" role="tab" aria-controls="account" aria-selected="true" data-original-title="" title="">Account</a></li>
+                                    <li class="nav-item"><a class="nav-link" id="permission-tabs" data-bs-toggle="tab" href="#permission" role="tab" aria-controls="permission" aria-selected="false" data-original-title="" title="">Permission</a></li>
+                                </ul>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade active show" id="account" role="tabpanel" aria-labelledby="account-tab">
+                                    
+                                        <form class="needs-validation user-add" action="#" th:action="@{/admin/user/edit-user}" method="post" th:object="${user}" 
+                                        enctype="multipart/form-data">
+                                            <h4>Account Details</h4>
+                                            <div class="pageIndex d-none"><input class="form-control" id="pageIndex" name="page" type="text" th:value="${page}"></div>
+                                            <div class="form-group row">
+                                                <label for="validationCustom0" class="col-xl-3 col-md-4"><span>*</span> First Name</label>
+                                                <div class="col-xl-8 col-md-7">
+                                                    <input class="form-control" id="validationCustom0" type="text" th:field="*{firstname}">
+                                                   <span class="danger forgot-pass" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></span>
+                                                </div>
+                                            </div>
+                                            <div class="d-none"><input class="form-control" id="idIndex" type="text" th:field="*{id}"></div>
+                                            <div class="form-group row">
+                                                <label for="validationCustom1" class="col-xl-3 col-md-4"><span>*</span> Last Name</label>
+                                                <div class="col-xl-8 col-md-7">
+                                                    <input class="form-control" id="validationCustom1" type="text" th:field="*{lastname}">
+                                                    <span class="danger forgot-pass" th:if="${#fields.hasErrors('lastname')}" th:errors ="*{lastname}"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="validationCustom2" class="col-xl-3 col-md-4"><span>*</span> Email</label>
+                                                <div class="col-xl-8 col-md-7">
+                                                    <input class="form-control" id="validationCustom2" type="email" th:field="*{email}">
+                                                    <span class="danger forgot-pass" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                                                </div>
+                                            </div>
+                                             <div class="form-group row">
+                                                <label for="validationCustom2" class="col-xl-3 col-md-4"><span></span> Phone</label>
+                                                <div class="col-xl-8 col-md-7">
+                                                    <input class="form-control" id="validationCustom2" type="text" th:field="*{phone}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="validationCustom2" class="col-xl-3 col-md-4"><span></span> Address</label>
+                                                <div class="col-xl-8 col-md-7">
+                                                    <input class="form-control" id="validationCustom2" type="text" th:field="*{address}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="validationCustom2" class="col-xl-3 col-md-4"><span></span> Avartar</label>
+                                                <div class="col-xl-3 xl-50 col-sm-6 col-3">
+													<div class="box-input-file">
+														<input class="upload" type="file" name="fileName" id="fileName" accept="image/png , image/jpeg">
+													</div>
+                                                </div>
+                                            </div>
+                                             <div class="form-group row" th:if="${avatar != ''}">
+                                                <label for="validationCustom2" class="col-xl-3 col-md-4"><span></span> </label>
+                                                <div class="col-xl-3 xl-50 col-sm-6 col-3">
+													<div class="box-input-file">
+														<img  alt="Image preview" th:src="@{${user.getImagePathDto}}" id="imagePreview">
+													</div>
+                                                </div>
+                                            </div>
+                                            
+                                             <div class="form-group row" th:if="${avatar == ''}">
+                                                <label for="validationCustom2" class="col-xl-3 col-md-4"><span></span> </label>
+                                                <div class="col-xl-3 xl-50 col-sm-6 col-3">
+													<div class="box-input-file">
+														<img  alt="Image preview" src="../static/assets/images/dashboard/man.png" id="imagePreview">
+													</div>
+                                                </div>
+                                            </div>
+                                            
+                                             <div class="form-group row">
+                                                <label for="validationCustom3" class="col-xl-3 col-md-4"><span>*</span> Role</label>
+                                                <div class="col-xl-8 col-md-7">
+                                                       <select class="form-control digits" id="exampleFormControlSelect1" th:field="*{roleId}">
+<!--                                                        		<option value = "1">------</option> -->
+                                                          	<option th:each ="role : ${listRoleDto}" th:value ="${role.id}" th:text="${role.name}" ></option>
+                                                        </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="validationCustom3" class="col-xl-3 col-md-4"><span>*</span> Password</label>
+                                                <div class="col-xl-8 col-md-7">
+                                                    <input class="form-control" id="validationCustom3" type="password" th:field="*{password}">
+                                                    <span class="danger forgot-pass" th:if="${#fields.hasErrors('password')}" th:errors="*{password}" ></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="validationCustom4" class="col-xl-3 col-md-4"><span>*</span> Confirm Password</label>
+                                                <div class="col-xl-8 col-md-7">
+                                                    <input class="form-control" id="validationCustom4" type="password" th:field="*{confirmpassword}">
+                                                     <span class="danger forgot-pass" th:if="${#fields.hasErrors('confirmpassword')}" th:errors="*{confirmpassword}" ></span>
+                                                </div>
+                                            </div>
+                                        <div class="pull-right">
+                                    		<button type="submit" class="btn btn-primary">Save</button>
+                                		</div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane fade" id="permission" role="tabpanel" aria-labelledby="permission-tabs">
+                                        <form class="needs-validation user-add" novalidate="">
+                                            <div class="permission-block">
+                                                <div class="attribute-blocks">
+                                                    <h5 class="f-w-600 mb-3">Product Related permition </h5>
+                                                    <div class="row">
+                                                        <div class="col-xl-3 col-sm-4">
+                                                            <label>Add Product</label>
+                                                        </div>
+                                                        <div class="col-xl-9 col-sm-8">
+                                                            <div class="form-group m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
+                                                                <label class="d-block" for="edo-ani1">
+                                                                    <input class="radio_animated" id="edo-ani1" type="radio" name="rdo-ani">
+                                                                    Allow
+                                                                </label>
+                                                                <label class="d-block" for="edo-ani2">
+                                                                    <input class="radio_animated" id="edo-ani2" type="radio" name="rdo-ani" checked="">
+                                                                    Deny
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xl-3 col-sm-4">
+                                                            <label>Update Product</label>
+                                                        </div>
+                                                        <div class="col-xl-9 col-sm-8">
+                                                            <div class="form-group m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
+                                                                <label class="d-block" for="edo-ani3">
+                                                                    <input class="radio_animated" id="edo-ani3" type="radio" name="rdo-ani1">
+                                                                    Allow
+                                                                </label>
+                                                                <label class="d-block" for="edo-ani4">
+                                                                    <input class="radio_animated" id="edo-ani4" type="radio" name="rdo-ani1" checked="">
+                                                                    Deny
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xl-3 col-sm-4">
+                                                            <label>Delete Product</label>
+                                                        </div>
+                                                        <div class="col-xl-9 col-sm-8">
+                                                            <div class="form-group m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
+                                                                <label class="d-block" for="edo-ani5">
+                                                                    <input class="radio_animated" id="edo-ani5" type="radio" name="rdo-ani2">
+                                                                    Allow
+                                                                </label>
+                                                                <label class="d-block" for="edo-ani6">
+                                                                    <input class="radio_animated" id="edo-ani6" type="radio" name="rdo-ani2" checked="">
+                                                                    Deny
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xl-3 col-sm-4">
+                                                            <label class="mb-0 sm-label-radio">Apply discount</label>
+                                                        </div>
+                                                        <div class="col-xl-9 col-sm-8">
+                                                            <div class="form-group m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated pb-0">
+                                                                <label class="d-block mb-0" for="edo-ani7">
+                                                                    <input class="radio_animated" id="edo-ani7" type="radio" name="rdo-ani3">
+                                                                    Allow
+                                                                </label>
+                                                                <label class="d-block mb-0" for="edo-ani8">
+                                                                    <input class="radio_animated" id="edo-ani8" type="radio" name="rdo-ani3" checked="">
+                                                                    Deny
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="attribute-blocks">
+                                                    <h5 class="f-w-600 mb-3">Category Related permition </h5>
+                                                    <div class="row">
+                                                        <div class="col-xl-3 col-sm-4">
+                                                            <label>Add Category</label>
+                                                        </div>
+                                                        <div class="col-xl-9 col-sm-8">
+                                                            <div class="form-group m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
+                                                                <label class="d-block" for="edo-ani9">
+                                                                    <input class="radio_animated" id="edo-ani9" type="radio" name="rdo-ani4">
+                                                                    Allow
+                                                                </label>
+                                                                <label class="d-block" for="edo-ani10">
+                                                                    <input class="radio_animated" id="edo-ani10" type="radio" name="rdo-ani4" checked="">
+                                                                    Deny
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xl-3 col-sm-4">
+                                                            <label>Update Category</label>
+                                                        </div>
+                                                        <div class="col-xl-9 col-sm-8">
+                                                            <div class="form-group m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
+                                                                <label class="d-block" for="edo-ani11">
+                                                                    <input class="radio_animated" id="edo-ani11" type="radio" name="rdo-ani5">
+                                                                    Allow
+                                                                </label>
+                                                                <label class="d-block" for="edo-ani12">
+                                                                    <input class="radio_animated" id="edo-ani12" type="radio" name="rdo-ani5" checked="">
+                                                                    Deny
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xl-3 col-sm-4">
+                                                            <label>Delete Category</label>
+                                                        </div>
+                                                        <div class="col-xl-9 col-sm-8">
+                                                            <div class="form-group m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
+                                                                <label class="d-block" for="edo-ani13">
+                                                                    <input class="radio_animated" id="edo-ani13" type="radio" name="rdo-ani6">
+                                                                    Allow
+                                                                </label>
+                                                                <label class="d-block" for="edo-ani14">
+                                                                    <input class="radio_animated" id="edo-ani14" type="radio" name="rdo-ani6" checked="">
+                                                                    Deny
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xl-3 col-sm-4">
+                                                            <label class="mb-0 sm-label-radio">Apply discount</label>
+                                                        </div>
+                                                        <div class="col-xl-9 col-sm-8">
+                                                            <div class="form-group m-checkbox-inline custom-radio-ml d-flex radio-animated pb-0">
+                                                                <label class="d-block mb-0" for="edo-ani15">
+                                                                    <input class="radio_animated" id="edo-ani15" type="radio" name="rdo-ani7">
+                                                                    Allow
+                                                                </label>
+                                                                <label class="d-block mb-0" for="edo-ani16">
+                                                                    <input class="radio_animated" id="edo-ani16" type="radio" name="rdo-ani7" checked="">
+                                                                    Deny
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+<!--                                 <div class="pull-right">
+                                    <button type="button" class="btn btn-primary">Save</button>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid Ends-->
+
+        </div>
+
+        <!-- footer start-->
+			<th:block th:insert = "~{./layout/footer::footer}"></th:block>
+        <!-- footer end-->
+
+    </div>
+
 </div>
+
+<th:block th:insert = "~{./layout/script::script}"></th:block>
+<script type="text/javascript">
+	 var fileName = document.getElementById('fileName');
+	 var imgPreview = document.getElementById('imagePreview');
+     imgPreview.style.width = "250px"
+     imgPreview.style.height = "250px"
+     fileName.addEventListener('change', function(){
+         file = this.files[0];
+         reader = new FileReader();
+         reader.readAsDataURL(file);
+         reader.onload = function(){
+             imgPreview.src = reader.result; 
+         }
+     });
+	
+</script>
+
+</body>
+</html>

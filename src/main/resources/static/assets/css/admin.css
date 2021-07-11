@@ -5,6 +5,10 @@
 .theme-color-1 {
   --theme-deafult: #ff4c3b; }
 
+.hide{
+	display:none
+}
+
 .theme-color-2 {
   --theme-deafult: #f0583d; }
 

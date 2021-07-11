@@ -3,14 +3,25 @@ package com.ecommerce.admin.dto;
 import java.sql.Date;
 import java.sql.Timestamp;
 
+import javax.validation.constraints.NotBlank;
+
 public class RoleDto {
+	
 	private int id;
+	
+	@NotBlank(message="Name can not blank")
 	private String name;
+	@NotBlank(message="Description can not blank")
 	private String description;
 	private String validflag;
 	private String generate;
 	private String useradd;
-	private Date datime;
+	private Timestamp datime;
+	
+	public RoleDto() {
+		
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -27,10 +38,10 @@ public class RoleDto {
 		return description;
 	}
 	
-	public Date getDatime() {
+	public Timestamp getDatime() {
 		return datime;
 	}
-	public void setDatime(Date datime) {
+	public void setDatime(Timestamp datime) {
 		this.datime = datime;
 	}
 	public void setDescription(String description) {

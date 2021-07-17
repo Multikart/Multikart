@@ -6,6 +6,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,7 +101,9 @@ public class UserController {
 	}
 	
 	@RequestMapping("/list-user/{pageIndex}")
-	public String index(@PathVariable("pageIndex") int pageIndex ,Model model) {
+	public String index(@PathVariable("pageIndex") int pageIndex ,Model model, HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		session.setAttribute("message", "abc");
 //		int pageSize = 1;
 //		Pageable pageable = PageRequest.of(index, pageSize);
 //		Page page = userService.findAllPaging(pageable);

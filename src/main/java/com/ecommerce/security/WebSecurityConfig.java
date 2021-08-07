@@ -17,6 +17,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @ComponentScan(basePackages = "com.ecommerce")
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    private CustomLoginFailureHandler loginFailureHandler;
 	@Autowired
 	private UserDetailsService userDetailsService;
 	String role[] = {"ADMIN"};
@@ -56,7 +58,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.usernameParameter("email") // name của ô input dùng để nhập email
 				.passwordParameter("password") // name của ô input dùng để nhập mật khẩu
 				.defaultSuccessUrl("/admin") // Nếu đăng nhập thành công thì sẽ chuyển hướng về trang chủ
-				.failureUrl("/admin/login?error=1"); // Nếu đăng nhập thất bại thì sẽ chuyển hướng về trang đăng nhập
+//				.failureUrl("/admin/login?error=1")
+				.failureHandler(loginFailureHandler); // Nếu đăng nhập thất bại thì sẽ chuyển hướng về trang đăng nhập
 
 		// CẤU HÌNH ĐĂNG XUẤT
 		http.logout()

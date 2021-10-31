@@ -15,7 +15,7 @@ public interface RoleDAO extends JpaRepository<Role, Integer> {
 	
 	@Query("SELECT r FROM Role r")
 	public Page<Role> findAllPaging(Pageable pageable);
-	@Query("SELECT r from Role r ORDER BY r.datime DESC")
+	@Query("SELECT r from Role r ORDER BY r.id DESC")
 	public List<Role> findAllOrderByDatimeDesc();
 	public Role findByName(String name);
 

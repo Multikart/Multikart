@@ -23,7 +23,7 @@ public class Role {
 	private String description;
 	private String validflag;
 	private String generate;
-	private Timestamp datime;
+//	private Timestamp datime;
 	private String useradd;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "role")
@@ -98,12 +98,12 @@ public class Role {
 		this.users = users;
 	}
 
-	public Timestamp getDatime() {
-		return datime;
-	}
-
-	public void setDatime(Timestamp datime) {
-		this.datime = datime;
-	}
+//	public Timestamp getDatime() {
+//		return datime;
+//	}
+//
+//	public void setDatime(Timestamp datime) {
+//		this.datime = datime;
+//	}
 	
 }

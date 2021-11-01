@@ -1,10 +1,26 @@
 package com.ecommerce.admin.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.validation.Valid;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -21,19 +37,27 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.function.EntityResponse;
 
 import com.ecommerce.admin.dto.RoleDto;
+import com.ecommerce.admin.dto.RoleThreadUpload;
+import com.ecommerce.admin.entity.Role;
 import com.ecommerce.admin.service.RoleService;
+import com.ecommerce.admin.service.impl.RoleServiceImpl;
+import com.ecommerce.admin.service.impl.UploadRoleImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
 @RequestMapping("admin/role")
 public class RoleController {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(RoleController.class);
 	private static final int pagesize = 5;
 	@Autowired
 	RoleService roleService;
+	@Autowired
+	UploadRoleImpl upload;
 	
 	@GetMapping("/list-role")
 	public String role(Model model) {
@@ -74,8 +98,8 @@ public class RoleController {
 			return "role/add-role";
 		}
 		String message = "";
-		boolean success = roleService.save(role);
-		if(success) {
+		Role success = roleService.save(role);
+		if(success != null) {
 			return "redirect:/admin/role/list-role";
 		}else {
 			message = "Create unsuccessfully!";
@@ -105,8 +129,8 @@ public class RoleController {
 			return "role/add-role";
 		}
 		String message = "";
-		boolean success = roleService.edit(role);
-		if(success) {
+		Role success = roleService.edit(role);
+		if(success != null) {
 			return "redirect:/admin/role/list-role";
 		}else {
 			message = "Edit unsuccessfully!";
@@ -125,6 +149,22 @@ public class RoleController {
 		}
 		roleService.invalidRole(id);
 		return new ResponseEntity<String>("Role is updated",HttpStatus.OK);
+	}
+	
+	@GetMapping("/upload-role")
+	public String roleUploadCSV(Model model) {
+		LOGGER.info("upload-role");
+		return "role/upload-role";
+	}
+	
+	@PostMapping("/upload-role")
+	public String roleUploadCSV(@RequestParam("fileName") MultipartFile uploadFile) {
+		try {
+			roleService.uploadRole(uploadFile);
+		} catch (Exception e) {
+			LOGGER.error(e.toString());
+		}
+		return "role/upload-role";
 	}
 	
 }

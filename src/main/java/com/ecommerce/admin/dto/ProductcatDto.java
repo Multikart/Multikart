@@ -1,51 +1,38 @@
-package com.ecommerce.admin.entity;
+package com.ecommerce.admin.dto;
 
 import java.sql.Timestamp;
-import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
-@Entity
-@Table(name = "productcat")
-public class Productcat {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ProductcatDto {
+
 	private int id;
+	
+	@NotBlank
 	private String name;
+	
+	@NotBlank
 	private String description;
 	private String validflag;
-//	private Timestamp datime;
+	private Timestamp datime;
 	private String useradd;
 	private String image;
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "productcat")
-	private List<Product> listProduct;
+	private String imagePath;
 	
 	
-	public List<Product> getListProduct() {
-		return listProduct;
-	}
-	public void setListProduct(List<Product> listProduct) {
-		this.listProduct = listProduct;
-	}
-	public Productcat() {
+	
+	public ProductcatDto() {
 		super();
 	}
-	public Productcat(int id, String name, String description, String validflag, String useradd,
+	
+	public ProductcatDto(int id, String name, String description, String validflag, Timestamp datime, String useradd,
 			String image) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.validflag = validflag;
-//		this.datime = datime;
+		this.datime = datime;
 		this.useradd = useradd;
 		this.image = image;
 	}
@@ -73,12 +60,12 @@ public class Productcat {
 	public void setValidflag(String validflag) {
 		this.validflag = validflag;
 	}
-//	public Timestamp getDatime() {
-//		return datime;
-//	}
-//	public void setDatime(Timestamp datime) {
-//		this.datime = datime;
-//	}
+	public Timestamp getDatime() {
+		return datime;
+	}
+	public void setDatime(Timestamp datime) {
+		this.datime = datime;
+	}
 	public String getUseradd() {
 		return useradd;
 	}
@@ -90,6 +77,14 @@ public class Productcat {
 	}
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 	
 	

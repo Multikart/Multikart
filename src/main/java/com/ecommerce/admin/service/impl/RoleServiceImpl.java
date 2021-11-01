@@ -1,19 +1,33 @@
 package com.ecommerce.admin.service.impl;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.stream.Stream;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ecommerce.admin.dao.RoleDAO;
 import com.ecommerce.admin.dto.RoleDto;
+import com.ecommerce.admin.dto.RoleThreadUpload;
 import com.ecommerce.admin.entity.Role;
 import com.ecommerce.admin.service.RoleService;
 
@@ -23,6 +37,8 @@ public class RoleServiceImpl implements RoleService {
 	private static final Logger LOGGER = LoggerFactory.getLogger(RoleServiceImpl.class);
 	@Autowired
 	private RoleDAO roleDAO;
+	@Autowired
+	private ApplicationContext applicationContext;
 	
 	@Override
 	public List<RoleDto> getListRole() {
@@ -54,35 +70,36 @@ public class RoleServiceImpl implements RoleService {
 	}
 
 	@Override
-	public boolean save(RoleDto roledto) {
+	public Role save(RoleDto roledto) {
+		Role role = null;
 		if(roledto.getId() != 0) {
 			LOGGER.debug("Role is Exist");
-			return false ;
+			return role ;
 		}
 		try {
-			roleDAO.save(dtoToEntity(roledto));
+			role = roleDAO.save(dtoToEntity(roledto));
 		}catch (Exception e) {
 			LOGGER.debug(e.getMessage());
-			return false;
 		}
 		LOGGER.debug("Create Role successfully!");
-		return true;
+		return role;
 	}
 
 	@Override
-	public boolean edit(RoleDto roledto) {
+	public Role edit(RoleDto roledto) {
+		Optional<Role> roleOption = roleDAO.findById(roledto.getId());
+		Role role = null;
 		try {
-			Role role = roleDAO.getById(roledto.getId());
-			if(role == null) {
+			if(roleOption == null) {
 				LOGGER.debug("Role is not Exist");
-				return false;
+				return role;
 			}
-			roleDAO.save(dtoToEntity(roledto));
+			role = roleDAO.save(dtoToEntity(roledto));
 		}catch (Exception e) {
 			LOGGER.debug(e.getMessage());
 		}
 		LOGGER.debug("Edit Role successfully!");
-		return true;
+		return role;
 	}
 
 	@Override
@@ -102,10 +119,14 @@ public class RoleServiceImpl implements RoleService {
 	
 	public Role dtoToEntity(RoleDto roledto) {
 		Role role = null;
-		if(null != roledto && roledto.getId()!=0) {
-			role = roleDAO.getById(roledto.getId());
+		if(roledto.getId()!=0) {
+			Optional<Role> roleOption = roleDAO.findById(roledto.getId());
+			if(!roleOption.isPresent()) {
+				return null;
+			}
+			role = roleOption.get();
 		}else {
-			role = new Role();
+			return role;
 		}
 		role.setDescription(roledto.getDescription());
 		role.setName(roledto.getName());
@@ -123,7 +144,7 @@ public class RoleServiceImpl implements RoleService {
 		dto.setDescription(role.getDescription());
 		dto.setGenerate(role.getGenerate());
 		dto.setValidflag(role.getValidflag());
-		dto.setDatime(role.getDatime());
+//		dto.setDatime(role.getDatime());
 		dto.setUseradd(role.getUseradd());
 		return dto;
 	}
@@ -164,6 +185,64 @@ public class RoleServiceImpl implements RoleService {
 			}
 			});
 		return false;
+	}
+
+	@Override
+	public void uploadRole(MultipartFile uploadFile) {
+		InputStream inputStream;
+		try {
+			inputStream = uploadFile.getInputStream();
+			Workbook workbook = new XSSFWorkbook(inputStream);
+			Sheet sheet = workbook.getSheetAt(0);
+			Iterator<Row> iterator = sheet.iterator();
+			List<Role> roles = new ArrayList<Role>();
+			while(iterator.hasNext()) {
+				Row nextRow = iterator.next();
+				if(nextRow.getRowNum()==0
+						|| nextRow.getCell(0).toString()==""
+						|| nextRow.getCell(1).toString()==""
+						|| nextRow.getCell(2).toString()=="") {
+					continue;
+				}
+				
+				Iterator<Cell> cellIterator = nextRow.cellIterator();
+				Role role = new Role();
+				while(cellIterator.hasNext()) {
+					Cell cell = cellIterator.next();
+					if(cell.getColumnIndex()==0) {
+						role.setName(cell.toString());
+					}else if(cell.getColumnIndex()==1){
+						role.setDescription(cell.toString());
+					}else if(cell.getColumnIndex()==2){
+						if(Double.parseDouble(cell.toString())==1) {
+							role.setValidflag("1");
+						}else {
+							role.setValidflag("2");
+						}
+					}
+				}
+				roles.add(role);
+			}
+			ExecutorService executorService = Executors.newFixedThreadPool(8);
+			CountDownLatch countDownLatch = new CountDownLatch(roles.size());
+			long ts = System.currentTimeMillis();
+			for(Role role : roles) {
+				RoleThreadUpload rolethread = new RoleThreadUpload(role,countDownLatch);
+				applicationContext.getAutowireCapableBeanFactory().autowireBean(rolethread);
+				executorService.submit(rolethread);
+			}
+			try {
+				countDownLatch.await();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			LOGGER.info("Time to finish = " + (System.currentTimeMillis() - ts));
+			
+		} catch (IOException e) {
+			LOGGER.error(e.toString());
+		}
+	
 	}
 	
 
